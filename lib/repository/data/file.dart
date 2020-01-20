@@ -1,6 +1,6 @@
 class OpenSpaceFile {
-  OpenSpaceFile({this.key, this.abs_path});
+  OpenSpaceFile({this.key, this.absPath});
   //Key resembles the attribute of file.
   String key;
-  String abs_path;
+  String absPath;
 }

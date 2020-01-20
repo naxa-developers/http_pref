@@ -24,7 +24,7 @@ class BaseCacheProvider extends Cache {
 
   @override
   Future<bool> shouldForceLoadFromCache(String key) async {
-    var max_age_in_minutes = 30;
+    var maxAgeInMin = 30;
 
     int lastSavedTime = await SharedPreferencesHelper.getLastSavedTime(key);
     print("url $key last saved time: $lastSavedTime");
@@ -36,7 +36,7 @@ class BaseCacheProvider extends Cache {
     Duration difference = DateTime.now()
         .difference(DateTime.fromMillisecondsSinceEpoch(lastSavedTime));
 
-    bool shouldForceLoadFromCache = difference.inMinutes <= max_age_in_minutes;
+    bool shouldForceLoadFromCache = difference.inMinutes <= maxAgeInMin;
 
     return shouldForceLoadFromCache;
   }

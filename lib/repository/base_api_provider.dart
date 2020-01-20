@@ -30,7 +30,7 @@ class BaseNetworkProvider extends Source {
     for (var file in openSpaceFormData.files) {
       postRequest.files.add(await http.MultipartFile.fromPath(
         file.key,
-        file.abs_path,
+        file.absPath,
       ));
     }
 

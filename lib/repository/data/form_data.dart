@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'file.dart';
 
 class OpenSpaceFormData {
