@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http_pref_example/endpoints.dart';
+import 'package:http_pref_example/repository/post_repository.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,7 +10,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
   String response = "";
 
   @override
@@ -20,11 +21,17 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+        body: FutureBuilder<String>(
+          future: postRepository.getPosts(getPost),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Text("${snapshot.data}");
+            } else {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          },
         ),
       ),
     );
