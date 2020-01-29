@@ -1,6 +1,6 @@
 # http_pref
 
-Uses http for network request and shared pref for cache
+Making your app offline ready. Uses http for network request and shared prefences for cache
 
 ## Description
 Extend to `BaseRepository` and get all your GET request cached in using shared preferences.
@@ -32,11 +32,9 @@ class OpenSpaceRepository extends BaseRepository {
 
 ### POST
 ```
-  dynamic uploadForm(
-      Map<String, dynamic> formData, List<OpenSpaceFile> files) async {
+dynamic uploadForm(Map<String, dynamic> formData, List<OpenSpaceFile> files) async {
     var openSpaceFormData =
         OpenSpaceFormData(formFields: formData, files: files);
-    print("Trying to upload formData: $formData and files: $files");
     String response = await baseNetworkProvider.post(
         url: report, openSpaceFormData: openSpaceFormData);
     return response;

@@ -1,8 +1,6 @@
 name: http_pref
-description: A new flutter plugin project.
+description: Making your app offline ready. Uses http for network requests and sharedprefences for cache
 version: 0.0.1
-author:
-  - Nishon Tandukar <nishon@naxa.com.np>
 homepage: https://github.com/naxa-developers/http_pref
 
 environment:
