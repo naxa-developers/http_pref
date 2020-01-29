@@ -1,3 +1,4 @@
+[![Pub](https://img.shields.io/pub/v/http_pref.svg)](https://pub.dev/packages/http_pref)
 # http_pref
 
 Making your app offline ready. Uses http for network request and shared prefences for cache
