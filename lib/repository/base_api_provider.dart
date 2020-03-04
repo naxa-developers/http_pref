@@ -5,7 +5,7 @@ import 'data/form_data.dart';
 
 class BaseNetworkProvider extends Source {
   @override
-  Future<String> getData(String url, {headers}) {
+  Future<String> getData(String url, {Map<String, String> headers}) {
     return http.get(url, headers: headers).then((response) {
       if (response.statusCode != 200) {
         return null;

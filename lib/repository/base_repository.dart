@@ -1,4 +1,3 @@
-
 import 'base_api_provider.dart';
 import 'base_cache_provider.dart';
 import 'base_repo.dart';
@@ -8,7 +7,9 @@ class BaseRepository {
   List<Cache> _caches = <Cache>[baseCacheProvider];
 
   Future<String> fetchItem(String url,
-      {forceLoadFromCache = false, shouldCache = true}) async {
+      {forceLoadFromCache = false,
+      shouldCache = true,
+      Map<String, String> headers}) async {
     String result;
 
     for (var source in _caches) {
@@ -22,7 +23,7 @@ class BaseRepository {
       return result;
     }
 
-    result = await _fetchFromSources(url);
+    result = await _fetchFromSources(url, headers);
 
     if (result != null && shouldCache) {
       _addToCache(url, result);
@@ -33,10 +34,11 @@ class BaseRepository {
     return result;
   }
 
-  Future<String> _fetchFromSources(String url) async {
+  Future<String> _fetchFromSources(
+      String url, Map<String, String> headers) async {
     var result;
     for (var source in _sources) {
-      result = await source.getData(url);
+      result = await source.getData(url, headers: headers);
       if (result != null) break;
     }
 
