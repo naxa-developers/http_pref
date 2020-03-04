@@ -1,9 +1,7 @@
-
-
 import 'data/form_data.dart';
 
 abstract class Source {
-  Future<String> getData(String url);
+  Future<String> getData(String url, {headers});
 
   Future<String> post({String url, OpenSpaceFormData openSpaceFormData});
 }
