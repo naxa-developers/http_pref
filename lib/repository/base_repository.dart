@@ -38,7 +38,9 @@ class BaseRepository {
       String url, Map<String, String> headers) async {
     var result;
     for (var source in _sources) {
-      result = await source.getData(url, headers: headers);
+      result = await source
+          .getData(url, headers: headers)
+          .timeout(Duration(seconds: 60));
       if (result != null) break;
     }
 

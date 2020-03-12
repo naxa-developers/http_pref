@@ -1,6 +1,6 @@
 name: http_pref
 description: Making your app offline ready. Uses http for network requests and sharedprefences for cache
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/naxa-developers/http_pref
 
 environment:
@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
   http: ^0.12.0+2
   shared_preferences: ^0.5.3+4
+
 
 dev_dependencies:
   flutter_test:
